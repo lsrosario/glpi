@@ -21,13 +21,13 @@
 # 2. Instalação
 ####################################################################
 # 2.1. Atualizar
-sudo apt update && sudo apt dist-upgrade -y
+#sudo apt update && sudo apt dist-upgrade -y
 
 # 2.2. Reconfigurar timezone
-sudo dpkg-reconfigure tzdata
+#sudo dpkg-reconfigure tzdata
 
 # 2.3. Reiniciar
-sudo reboot
+#sudo reboot
 
 # 2.4. Instalar Apache, PHP e MySQL
 sudo apt install -y \
