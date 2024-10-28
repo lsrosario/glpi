@@ -1,9 +1,7 @@
 #!/bin/bash
 
 ####################################################################
-# Citra IT - Excelência em TI
 # Procedimento: INSTALAÇÃO GLPI
-# @Responsável: luciano@citrait.com.br
 # @Data: 23/09/2023 Versão: 1.1 update versão glpi
 # @Data: 13/06/2023 Versão: 1.0 inicial
 # @Homologado: Ubuntu 22.04
@@ -54,7 +52,7 @@ sudo apt install -y \
 
 # 2.5. Criar banco de dados do glpi
 sudo mysql -e "CREATE DATABASE glpi"
-sudo mysql -e "GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost' IDENTIFIED BY 'P4ssw0rd'"
+sudo mysql -e "GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost' IDENTIFIED BY 'glpi'"
 sudo mysql -e "GRANT SELECT ON mysql.time_zone_name TO 'glpi'@'localhost'"
 sudo mysql -e "FLUSH PRIVILEGES"
 
@@ -93,10 +91,10 @@ sudo a2enmod rewrite
 sudo systemctl restart apache2
 
 # 2.13. Download do GLPI
-wget -q https://github.com/glpi-project/glpi/releases/download/10.0.9/glpi-10.0.9.tgz
+wget -q https://github.com/glpi-project/glpi/releases/download/10.0.16/glpi-10.0.16.tgz
 
 # 2.14. Descompactar a pasta do GLPI
-tar -zxf glpi-10.0.9.tgz
+tar -zxf glpi-10.0.16.tgz
 
 # 2.15. Mover a pasta do GLPI para a pasta /var/www/
 sudo mv glpi /var/www/glpi
@@ -111,7 +109,7 @@ sudo php /var/www/glpi/bin/console db:install \
 	--db-port=3306 \
 	--db-name=glpi \
 	--db-user=glpi \
-	--db-password=P4ssw0rd -n -vvv
+	--db-password=glpi -n -vvv
 
 ####################################################################
 # 3. Ajustes de Segurança
